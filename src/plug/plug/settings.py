@@ -55,7 +55,7 @@ INSTALLED_APPS += [
 CACHES = {
     'default': {
         'BACKEND': 'redis_cache.RedisCache',
-        'LOCATION': 'localhost:6379',
+        'LOCATION': os.getenv("REDIS_URL"),
         # 'LOCATION': [os.environ.get("REDIS_URL", "redis://localhost:6379")],
     }
 }
