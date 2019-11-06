@@ -24,7 +24,7 @@ services:
     image: stilliard/pure-ftpd:hardened
     container_name: ftpd_server
     ports:
-      - "22:21"
+      - "21:21"
       - "30000-30009:30000-30009"
     volumes:
       - ../timestamps_dir:/timestamps_dir
