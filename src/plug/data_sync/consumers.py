@@ -88,6 +88,6 @@ class WsConsumer(AsyncConsumer):
         working_directory = settings.TIMESTAMPS_DIR
         file_identifier = data.get("file_identifier")
         timestamp_data = data.get("timestamp_data")
-
-        with open(os.path.join(working_directory, f"{file_identifier}.txt"), "w+") as file:
+        os.umask(0)
+        with open(os.open(os.path.join(working_directory, f"{file_identifier}.txt"), os.O_CREAT | os.O_WRONLY, 0o777), "w+") as file:
             file.write(f"{timestamp_data}")
